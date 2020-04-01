@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8afa6052fa9a4c2381bd49b57f41df37" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model.MediaItems" Width="3" PointX="1" PointY="1" />
+        <EntityTypeShape EntityType="Model.Locations" Width="1.5" PointX="9.5" PointY="1.625" />
+        <AssociationConnector Association="Model.MediaItemsLocations" />
+        <EntityTypeShape EntityType="Model.Persons" Width="1.5" PointX="8.125" PointY="3.875" />
+        <AssociationConnector Association="Model.MediaItemsPersons" />
+        <EntityTypeShape EntityType="Model.DynamicProperties" Width="1.5" PointX="6" PointY="3.875" />
+        <AssociationConnector Association="Model.MediaItemsDynamicProperties" />
+        <EntityTypeShape EntityType="Model.Events" Width="1.5" PointX="7.25" PointY="2" />
+        <AssociationConnector Association="Model.MediaItemsEvents1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

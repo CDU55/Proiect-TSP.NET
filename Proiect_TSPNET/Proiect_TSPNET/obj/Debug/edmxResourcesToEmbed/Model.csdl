@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MediaItems" EntityType="Model.MediaItems" />
+    <EntitySet Name="Locations" EntityType="Model.Locations" />
+    <AssociationSet Name="MediaItemsLocations" Association="Model.MediaItemsLocations">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <EntitySet Name="Persons" EntityType="Model.Persons" />
+    <AssociationSet Name="MediaItemsPersons" Association="Model.MediaItemsPersons">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+    <EntitySet Name="DynamicProperties" EntityType="Model.DynamicProperties" />
+    <AssociationSet Name="MediaItemsDynamicProperties" Association="Model.MediaItemsDynamicProperties">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="DynamicProperties" EntitySet="DynamicProperties" />
+    </AssociationSet>
+    <EntitySet Name="Events" EntityType="Model.Events" />
+    <AssociationSet Name="MediaItemsEvents1" Association="Model.MediaItemsEvents1">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MediaItems">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" />
+    <Property Name="Extension" Type="String" Nullable="false" />
+    <Property Name="IsPhoto" Type="Boolean" Nullable="false" />
+    <Property Name="MarkedForDelete" Type="Boolean" Nullable="false" />
+    <Property Name="PermanentDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Location" Relationship="Model.MediaItemsLocations" FromRole="MediaItems" ToRole="Locations" />
+    <NavigationProperty Name="Persons" Relationship="Model.MediaItemsPersons" FromRole="MediaItems" ToRole="Persons" />
+    <NavigationProperty Name="DynamicProperties" Relationship="Model.MediaItemsDynamicProperties" FromRole="MediaItems" ToRole="DynamicProperties" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="Model.MediaItemsEvents1" FromRole="MediaItems" ToRole="Events" />
+    <Property Name="EventsEventId" Type="Int32" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Region" Type="String" Nullable="false" />
+    <Property Name="Country" Type="String" Nullable="false" />
+    <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsLocations" FromRole="Locations" ToRole="MediaItems" />
+  </EntityType>
+  <Association Name="MediaItemsLocations">
+    <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" />
+    <End Type="Model.Locations" Role="Locations" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
+    <Property Name="Group" Type="String" Nullable="false" />
+    <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsPersons" FromRole="Persons" ToRole="MediaItems" />
+  </EntityType>
+  <Association Name="MediaItemsPersons">
+    <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" />
+    <End Type="Model.Persons" Role="Persons" Multiplicity="*" />
+  </Association>
+  <EntityType Name="DynamicProperties">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Value" Type="String" Nullable="false" />
+    <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsDynamicProperties" FromRole="DynamicProperties" ToRole="MediaItems" />
+  </EntityType>
+  <Association Name="MediaItemsDynamicProperties">
+    <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" />
+    <End Type="Model.DynamicProperties" Role="DynamicProperties" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="MediaItems1" Relationship="Model.MediaItemsEvents1" FromRole="Events" ToRole="MediaItems" />
+  </EntityType>
+  <Association Name="MediaItemsEvents1">
+    <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" />
+    <End Type="Model.Events" Role="Events" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="MediaItems">
+        <PropertyRef Name="EventsEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

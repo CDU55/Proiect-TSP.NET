@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="MediaItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MediaItems)">
+        <MappingFragment StoreEntitySet="MediaItems">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="IsPhoto" ColumnName="IsPhoto" />
+          <ScalarProperty Name="MarkedForDelete" ColumnName="MarkedForDelete" />
+          <ScalarProperty Name="PermanentDelete" ColumnName="PermanentDelete" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EventsEventId" ColumnName="EventsEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Locations)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Persons)">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DynamicProperties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DynamicProperties)">
+        <MappingFragment StoreEntitySet="DynamicProperties">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Events)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MediaItemsLocations" TypeName="Model.MediaItemsLocations" StoreEntitySet="MediaItems">
+      <EndProperty Name="Locations">
+        <ScalarProperty Name="LocationId" ColumnName="Location_LocationId" />
+      </EndProperty>
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+      </EndProperty>
+      <Condition ColumnName="Location_LocationId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MediaItemsPersons" TypeName="Model.MediaItemsPersons" StoreEntitySet="MediaItemsPersons">
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="MediaItems_ItemId" />
+      </EndProperty>
+      <EndProperty Name="Persons">
+        <ScalarProperty Name="PersonId" ColumnName="Persons_PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MediaItemsDynamicProperties" TypeName="Model.MediaItemsDynamicProperties" StoreEntitySet="MediaItemsDynamicProperties">
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="MediaItems_ItemId" />
+      </EndProperty>
+      <EndProperty Name="DynamicProperties">
+        <ScalarProperty Name="PropertyId" ColumnName="DynamicProperties_PropertyId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

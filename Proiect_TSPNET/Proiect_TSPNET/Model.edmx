@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="MediaItems" EntityType="Model.Store.MediaItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Locations" EntityType="Model.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Persons" EntityType="Model.Store.Persons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DynamicProperties" EntityType="Model.Store.DynamicProperties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="Model.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MediaItemsPersons" EntityType="Model.Store.MediaItemsPersons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MediaItemsDynamicProperties" EntityType="Model.Store.MediaItemsDynamicProperties" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MediaItemsLocations" Association="Model.Store.MediaItemsLocations">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaItemsPersons_MediaItems" Association="Model.Store.FK_MediaItemsPersons_MediaItems">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="MediaItemsPersons" EntitySet="MediaItemsPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaItemsPersons_Persons" Association="Model.Store.FK_MediaItemsPersons_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="MediaItemsPersons" EntitySet="MediaItemsPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaItemsDynamicProperties_MediaItems" Association="Model.Store.FK_MediaItemsDynamicProperties_MediaItems">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="MediaItemsDynamicProperties" EntitySet="MediaItemsDynamicProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaItemsDynamicProperties_DynamicProperties" Association="Model.Store.FK_MediaItemsDynamicProperties_DynamicProperties">
+      <End Role="DynamicProperties" EntitySet="DynamicProperties" />
+      <End Role="MediaItemsDynamicProperties" EntitySet="MediaItemsDynamicProperties" />
+    </AssociationSet>
+    <AssociationSet Name="MediaItemsEvents1" Association="Model.Store.MediaItemsEvents1">
+      <End Role="MediaItems" EntitySet="MediaItems" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MediaItems">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Extension" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsPhoto" Type="bit" Nullable="false" />
+    <Property Name="MarkedForDelete" Type="bit" Nullable="false" />
+    <Property Name="PermanentDelete" Type="bit" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="EventsEventId" Type="int" Nullable="true" />
+    <Property Name="Location_LocationId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Region" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Group" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DynamicProperties">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaItemsPersons">
+    <Key>
+      <PropertyRef Name="MediaItems_ItemId" />
+      <PropertyRef Name="Persons_PersonId" />
+    </Key>
+    <Property Name="MediaItems_ItemId" Type="int" Nullable="false" />
+    <Property Name="Persons_PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaItemsDynamicProperties">
+    <Key>
+      <PropertyRef Name="MediaItems_ItemId" />
+      <PropertyRef Name="DynamicProperties_PropertyId" />
+    </Key>
+    <Property Name="MediaItems_ItemId" Type="int" Nullable="false" />
+    <Property Name="DynamicProperties_PropertyId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="MediaItemsLocations">
+    <End Role="MediaItems" Type="Model.Store.MediaItems" Multiplicity="*" />
+    <End Role="Locations" Type="Model.Store.Locations" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="MediaItems">
+        <PropertyRef Name="Location_LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MediaItemsEvents1">
+    <End Role="MediaItems" Type="Model.Store.MediaItems" Multiplicity="*" />
+    <End Role="Events" Type="Model.Store.Events" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="MediaItems">
+        <PropertyRef Name="EventsEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaItemsPersons_MediaItems">
+    <End Role="MediaItems" Type="Model.Store.MediaItems" Multiplicity="1" />
+    <End Role="MediaItemsPersons" Type="Model.Store.MediaItemsPersons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaItems">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="MediaItemsPersons">
+        <PropertyRef Name="MediaItems_ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaItemsPersons_Persons">
+    <End Role="MediaItemsPersons" Type="Model.Store.MediaItemsPersons" Multiplicity="*" />
+    <End Role="Persons" Type="Model.Store.Persons" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="MediaItemsPersons">
+        <PropertyRef Name="Persons_PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaItemsDynamicProperties_MediaItems">
+    <End Role="MediaItems" Type="Model.Store.MediaItems" Multiplicity="1" />
+    <End Role="MediaItemsDynamicProperties" Type="Model.Store.MediaItemsDynamicProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaItems">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="MediaItemsDynamicProperties">
+        <PropertyRef Name="MediaItems_ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaItemsDynamicProperties_DynamicProperties">
+    <End Role="MediaItemsDynamicProperties" Type="Model.Store.MediaItemsDynamicProperties" Multiplicity="*" />
+    <End Role="DynamicProperties" Type="Model.Store.DynamicProperties" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DynamicProperties">
+        <PropertyRef Name="PropertyId" />
+      </Principal>
+      <Dependent Role="MediaItemsDynamicProperties">
+        <PropertyRef Name="DynamicProperties_PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MediaItems" EntityType="Model.MediaItems" />
+          <EntitySet Name="Locations" EntityType="Model.Locations" />
+          <AssociationSet Name="MediaItemsLocations" Association="Model.MediaItemsLocations">
+            <End Role="MediaItems" EntitySet="MediaItems" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <EntitySet Name="Persons" EntityType="Model.Persons" />
+          <AssociationSet Name="MediaItemsPersons" Association="Model.MediaItemsPersons">
+            <End Role="MediaItems" EntitySet="MediaItems" />
+            <End Role="Persons" EntitySet="Persons" />
+          </AssociationSet>
+          <EntitySet Name="DynamicProperties" EntityType="Model.DynamicProperties" />
+          <AssociationSet Name="MediaItemsDynamicProperties" Association="Model.MediaItemsDynamicProperties">
+            <End Role="MediaItems" EntitySet="MediaItems" />
+            <End Role="DynamicProperties" EntitySet="DynamicProperties" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="Model.Events" />
+          <AssociationSet Name="MediaItemsEvents1" Association="Model.MediaItemsEvents1">
+            <End Role="MediaItems" EntitySet="MediaItems" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MediaItems">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" />
+          <Property Name="Extension" Type="String" Nullable="false" />
+          <Property Name="IsPhoto" Type="Boolean" Nullable="false" />
+          <Property Name="MarkedForDelete" Type="Boolean" Nullable="false" />
+          <Property Name="PermanentDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="Model.MediaItemsLocations" FromRole="MediaItems" ToRole="Locations" />
+          <NavigationProperty Name="Persons" Relationship="Model.MediaItemsPersons" FromRole="MediaItems" ToRole="Persons" />
+          <NavigationProperty Name="DynamicProperties" Relationship="Model.MediaItemsDynamicProperties" FromRole="MediaItems" ToRole="DynamicProperties" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Model.MediaItemsEvents1" FromRole="MediaItems" ToRole="Events" />
+          <Property Name="EventsEventId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Region" Type="String" Nullable="false" />
+          <Property Name="Country" Type="String" Nullable="false" />
+          <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsLocations" FromRole="Locations" ToRole="MediaItems" />
+        </EntityType>
+        <Association Name="MediaItemsLocations">
+          <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" >
+          </End>
+          <End Type="Model.Locations" Role="Locations" Multiplicity="0..1" >
+          </End>
+        </Association>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Group" Type="String" Nullable="false" />
+          <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsPersons" FromRole="Persons" ToRole="MediaItems" />
+        </EntityType>
+        <Association Name="MediaItemsPersons">
+          <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" >
+          </End>
+          <End Type="Model.Persons" Role="Persons" Multiplicity="*" >
+          </End>
+        </Association>
+        <EntityType Name="DynamicProperties">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
+          <NavigationProperty Name="MediaItems" Relationship="Model.MediaItemsDynamicProperties" FromRole="DynamicProperties" ToRole="MediaItems" />
+        </EntityType>
+        <Association Name="MediaItemsDynamicProperties">
+          <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" >
+          </End>
+          <End Type="Model.DynamicProperties" Role="DynamicProperties" Multiplicity="*" >
+          </End>
+        </Association>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="MediaItems1" Relationship="Model.MediaItemsEvents1" FromRole="Events" ToRole="MediaItems" />
+        </EntityType>
+        <Association Name="MediaItemsEvents1">
+          <End Type="Model.MediaItems" Role="MediaItems" Multiplicity="*" >
+          </End>
+          <End Type="Model.Events" Role="Events" Multiplicity="0..1" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="MediaItems">
+              <PropertyRef Name="EventsEventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="MediaItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MediaItems)">
+        <MappingFragment StoreEntitySet="MediaItems">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="IsPhoto" ColumnName="IsPhoto" />
+          <ScalarProperty Name="MarkedForDelete" ColumnName="MarkedForDelete" />
+          <ScalarProperty Name="PermanentDelete" ColumnName="PermanentDelete" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EventsEventId" ColumnName="EventsEventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Locations)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Persons)">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DynamicProperties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DynamicProperties)">
+        <MappingFragment StoreEntitySet="DynamicProperties">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Events)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MediaItemsLocations" TypeName="Model.MediaItemsLocations" StoreEntitySet="MediaItems">
+      <EndProperty Name="Locations">
+        <ScalarProperty Name="LocationId" ColumnName="Location_LocationId" />
+      </EndProperty>
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+      </EndProperty>
+      <Condition ColumnName="Location_LocationId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MediaItemsPersons" TypeName="Model.MediaItemsPersons" StoreEntitySet="MediaItemsPersons">
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="MediaItems_ItemId" />
+      </EndProperty>
+      <EndProperty Name="Persons">
+        <ScalarProperty Name="PersonId" ColumnName="Persons_PersonId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MediaItemsDynamicProperties" TypeName="Model.MediaItemsDynamicProperties" StoreEntitySet="MediaItemsDynamicProperties">
+      <EndProperty Name="MediaItems">
+        <ScalarProperty Name="ItemId" ColumnName="MediaItems_ItemId" />
+      </EndProperty>
+      <EndProperty Name="DynamicProperties">
+        <ScalarProperty Name="PropertyId" ColumnName="DynamicProperties_PropertyId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

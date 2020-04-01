@@ -1,0 +1,14 @@
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Proiect_TSPNET.dll.config
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Proiect_TSPNET.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Proiect_TSPNET.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\EntityFramework.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\EntityFramework.xml
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\obj\Debug\Proiect_TSPNET.csprojAssemblyReference.cache
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\obj\Debug\Proiect_TSPNET.csproj.CopyComplete
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\obj\Debug\Proiect_TSPNET.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\obj\Debug\Proiect_TSPNET.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Json.Net.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Proiect_TSPNET\bin\Debug\Newtonsoft.Json.xml
