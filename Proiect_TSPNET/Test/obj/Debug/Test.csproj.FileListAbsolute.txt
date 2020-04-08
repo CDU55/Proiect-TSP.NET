@@ -12,3 +12,5 @@ C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\obj\Debug
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\obj\Debug\Test.pdb
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\Test\bin\Debug\Newtonsoft.Json.xml

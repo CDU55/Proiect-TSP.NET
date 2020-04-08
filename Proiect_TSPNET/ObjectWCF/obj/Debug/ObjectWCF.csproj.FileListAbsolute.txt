@@ -1,0 +1,13 @@
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\ObjectWCF.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\ObjectWCF.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\Proiect_TSPNET.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\EntityFramework.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\Proiect_TSPNET.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\Proiect_TSPNET.dll.config
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\EntityFramework.xml
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\obj\Debug\ObjectWCF.csprojAssemblyReference.cache
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\obj\Debug\ObjectWCF.csproj.CopyComplete
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\obj\Debug\ObjectWCF.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ObjectWCF\obj\Debug\ObjectWCF.pdb

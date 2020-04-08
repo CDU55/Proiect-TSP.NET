@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Proiect_TSPNET
 {
+    [DataContract]
     public class MediaItemDTO
     {
+        [DataMember]
         public string Title { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public string Path { get; set; }
+        [DataMember]
         public string Extension { get; set; }
+        [DataMember]
         public DateTime Date { get; set; }
+        [DataMember]
         public bool IsPhoto { get; set; }
+        [DataMember]
         public string Location { get; set; }
+        [DataMember]
         public string Event { get; set; }
+        [DataMember]
         public bool MarkedForDelete { get; set; }
+        [DataMember]
         public bool PermanentDelete { get; set; }
 
         public MediaItemDTO(MediaItems item)
