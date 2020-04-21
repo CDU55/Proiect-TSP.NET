@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(497, 450);
             this.Controls.Add(this.Filter);
             this.Controls.Add(this.Date);
             this.Controls.Add(this.IsPhoto);
@@ -136,6 +136,7 @@
             this.Controls.Add(this.ExtensionCheck);
             this.Name = "FilterByProperties";
             this.Text = "FilterByProperties";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FilterByProperties_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

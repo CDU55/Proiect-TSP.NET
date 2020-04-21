@@ -14,3 +14,5 @@ C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\obj\De
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\obj\Debug\HostWCF.csproj.CopyComplete
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\obj\Debug\HostWCF.exe
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\obj\Debug\HostWCF.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\HostWCF\bin\Debug\EntityFramework.SqlServer.xml

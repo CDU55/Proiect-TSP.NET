@@ -119,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddItemSequence";
             this.Text = "AddItemSequence";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddItemSequence_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -83,6 +83,9 @@ namespace ClientWCF
             }
         }
 
-
+        private void AddProperties_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

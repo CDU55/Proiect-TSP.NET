@@ -93,5 +93,10 @@ namespace ClientWCF
                 }
             }
         }
+
+        private void Add_Locations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

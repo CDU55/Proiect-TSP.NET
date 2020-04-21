@@ -27,5 +27,10 @@ namespace ClientWCF
             this.items = service.FileterByScalar(items.ToArray(), Extension.Text, ExtensionCheck.Checked, Date.Value, DateCheck.Checked, IsPhoto.Checked, IsPhotoCheck.Checked, EventName.Text, EventCheck.Checked).ToList();
             this.Close();
         }
+
+        private void FilterByProperties_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

@@ -144,6 +144,7 @@
             this.Controls.Add(this.SelectFile);
             this.Name = "AddItem";
             this.Text = "AddItem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddItem_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -27,3 +27,4 @@ C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ClientWCF\obj\
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ClientWCF\obj\Debug\ClientWCF.csproj.ResolveComReference.cache
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ClientWCF\obj\Debug\ClientWCF.exe
 C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ClientWCF\obj\Debug\ClientWCF.pdb
+C:\Users\Claudiu\Desktop\An3_Sem2\TSP.NET\Proiecte\Proiect_TSPNET\ClientWCF\obj\Debug\ClientWCF.MailForm.resources

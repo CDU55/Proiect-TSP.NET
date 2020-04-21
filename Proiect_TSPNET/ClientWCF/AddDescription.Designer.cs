@@ -125,6 +125,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Name = "AddDescription";
             this.Text = "AddDescription";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddDescription_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -51,5 +51,10 @@ namespace ClientWCF
                 this.ContentExists.Text = "No Content";
             }
         }
+
+        private void ItemsRelationsDisplay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

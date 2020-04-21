@@ -85,6 +85,7 @@
             this.Controls.Add(this.CurrentFolder);
             this.Name = "AddFromFolder";
             this.Text = "AddFromFolder";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFromFolder_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

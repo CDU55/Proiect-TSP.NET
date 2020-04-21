@@ -79,5 +79,10 @@ namespace ClientWCF
                 this.Close();
             }
         }
+
+        private void FilterByRelations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

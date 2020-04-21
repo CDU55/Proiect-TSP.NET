@@ -1,6 +1,9 @@
 ﻿using Proiect_TSPNET;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -50,12 +53,6 @@ namespace ClientWCF
         {
             FormOpener.Switch(this, new MainMenu());
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var x = (MediaItemDTO)this.ItemsTable.CurrentRow.DataBoundItem;
-            AlertBox.DisplayMessage(x.Path);
         }
 
         private void Attach_Click(object sender, EventArgs e)
@@ -172,6 +169,16 @@ namespace ClientWCF
                 }
 
             }
+        }
+
+        private void MailBtn_Click(object sender, EventArgs e)
+        {
+            FormOpener.Open(new MailForm((List<MediaItemDTO>)this.ItemsTable.DataSource));
+        }
+
+        private void Items_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.service.Close();
         }
     }
 }

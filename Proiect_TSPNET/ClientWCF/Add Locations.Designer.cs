@@ -150,6 +150,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Add_Locations";
             this.Text = "Add_Locations";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Locations_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

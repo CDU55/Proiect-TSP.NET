@@ -72,6 +72,7 @@
             this.Controls.Add(this.RelationItems);
             this.Name = "FilterByRelations";
             this.Text = "FilterByRelations";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FilterByRelations_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.RelationItems)).EndInit();
             this.ResumeLayout(false);
 

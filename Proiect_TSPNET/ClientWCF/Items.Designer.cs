@@ -43,7 +43,6 @@
             this.AddItem = new System.Windows.Forms.Button();
             this.AddFromFolder = new System.Windows.Forms.Button();
             this.ViewItem = new System.Windows.Forms.Button();
-            this.mediaItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MoveItem = new System.Windows.Forms.Button();
             this.SelectFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.FilterProperties = new System.Windows.Forms.Button();
@@ -51,6 +50,8 @@
             this.SelectFile = new System.Windows.Forms.OpenFileDialog();
             this.FilterByRel = new System.Windows.Forms.Button();
             this.ViewInApp = new System.Windows.Forms.Button();
+            this.mediaItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.MailBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaItemsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -202,10 +203,6 @@
             this.ViewItem.UseVisualStyleBackColor = true;
             this.ViewItem.Click += new System.EventHandler(this.ViewItem_Click);
             // 
-            // mediaItemsBindingSource
-            // 
-            this.mediaItemsBindingSource.DataSource = typeof(Proiect_TSPNET.MediaItemDTO);
-            // 
             // MoveItem
             // 
             this.MoveItem.Location = new System.Drawing.Point(481, 454);
@@ -244,7 +241,7 @@
             // 
             this.FilterByRel.Location = new System.Drawing.Point(318, 500);
             this.FilterByRel.Name = "FilterByRel";
-            this.FilterByRel.Size = new System.Drawing.Size(204, 23);
+            this.FilterByRel.Size = new System.Drawing.Size(130, 23);
             this.FilterByRel.TabIndex = 16;
             this.FilterByRel.Text = "Fileter by relations";
             this.FilterByRel.UseVisualStyleBackColor = true;
@@ -252,19 +249,34 @@
             // 
             // ViewInApp
             // 
-            this.ViewInApp.Location = new System.Drawing.Point(544, 499);
+            this.ViewInApp.Location = new System.Drawing.Point(650, 499);
             this.ViewInApp.Name = "ViewInApp";
-            this.ViewInApp.Size = new System.Drawing.Size(223, 23);
+            this.ViewInApp.Size = new System.Drawing.Size(117, 23);
             this.ViewInApp.TabIndex = 17;
             this.ViewInApp.Text = "View in application";
             this.ViewInApp.UseVisualStyleBackColor = true;
             this.ViewInApp.Click += new System.EventHandler(this.ViewInApp_Click);
+            // 
+            // mediaItemsBindingSource
+            // 
+            this.mediaItemsBindingSource.DataSource = typeof(Proiect_TSPNET.MediaItemDTO);
+            // 
+            // MailBtn
+            // 
+            this.MailBtn.Location = new System.Drawing.Point(481, 500);
+            this.MailBtn.Name = "MailBtn";
+            this.MailBtn.Size = new System.Drawing.Size(142, 23);
+            this.MailBtn.TabIndex = 18;
+            this.MailBtn.Text = "Send Mail";
+            this.MailBtn.UseVisualStyleBackColor = true;
+            this.MailBtn.Click += new System.EventHandler(this.MailBtn_Click);
             // 
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 600);
+            this.Controls.Add(this.MailBtn);
             this.Controls.Add(this.ViewInApp);
             this.Controls.Add(this.FilterByRel);
             this.Controls.Add(this.Export);
@@ -285,6 +297,7 @@
             this.Controls.Add(this.ItemsTable);
             this.Name = "Items";
             this.Text = "Items";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Items_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaItemsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -314,5 +327,6 @@
         private System.Windows.Forms.OpenFileDialog SelectFile;
         private System.Windows.Forms.Button FilterByRel;
         private System.Windows.Forms.Button ViewInApp;
+        private System.Windows.Forms.Button MailBtn;
     }
 }

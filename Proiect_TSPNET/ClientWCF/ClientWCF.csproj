@@ -114,12 +114,6 @@
     <Compile Include="FilterByRelations.designer.cs">
       <DependentUpon>FilterByRelations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormOpener.cs" />
     <Compile Include="Items.cs">
       <SubType>Form</SubType>
@@ -132,6 +126,12 @@
     </Compile>
     <Compile Include="ItemsRelationsDisplay.designer.cs">
       <DependentUpon>ItemsRelationsDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailForm.Designer.cs">
+      <DependentUpon>MailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -192,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsRelationsDisplay.resx">
       <DependentUpon>ItemsRelationsDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailForm.resx">
+      <DependentUpon>MailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

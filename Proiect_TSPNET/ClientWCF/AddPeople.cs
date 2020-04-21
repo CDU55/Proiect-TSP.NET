@@ -80,5 +80,10 @@ namespace ClientWCF
                 }
             }
         }
+
+        private void AddPeople_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

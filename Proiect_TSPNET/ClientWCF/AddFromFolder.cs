@@ -43,5 +43,10 @@ namespace ClientWCF
                 }
             }
         }
+
+        private void AddFromFolder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

@@ -163,5 +163,10 @@ namespace ClientWCF
                 }
             }
         }
+
+        private void AddItemRelation_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            service.Close();
+        }
     }
 }

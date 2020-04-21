@@ -152,6 +152,7 @@
             this.Controls.Add(this.FirstName);
             this.Name = "AddPeople";
             this.Text = "AddPeople";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddPeople_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

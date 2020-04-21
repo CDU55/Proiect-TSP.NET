@@ -97,6 +97,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "AddItemRelation";
             this.Text = "AddItemRelation";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddItemRelation_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
