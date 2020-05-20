@@ -24,5 +24,14 @@ namespace ObjectWCF
         List<PersonDTO> GetPersons();
         [OperationContract]
         List<PropertyDTO> GetProperties();
+        [OperationContract]
+        MediaItemDTO GetItemByPath(string path);
+
+        [OperationContract]
+        MediaItemDTO GetItemById(int Id);
+        [OperationContract]
+        bool ItemExists(string path);
+
+
     }
 }

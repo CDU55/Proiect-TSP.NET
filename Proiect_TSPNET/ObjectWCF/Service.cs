@@ -7,198 +7,213 @@ namespace ObjectWCF
     public class Service : IService
 
     {
-        private readonly ItemsService _service;
+        private readonly ItemsService service;
 
         public Service()
         {
-            _service = new ItemsService();
+            service = new ItemsService();
         }
         public bool AddAllMediaFilesFromFolder(string path, bool recursive)
         {
-            return _service.localItems.AddAllMediaFilesFromFolder(path, recursive);
+            return service.localItems.AddAllMediaFilesFromFolder(path, recursive);
         }
 
         public bool AddDynamicPropery(string name, string value)
         {
-            return _service.dbService.editService.AddDynamicPropery(name, value);
+            return service.dbService.editService.AddDynamicPropery(name, value);
         }
 
         public bool AddLocalFile(string path, string description, DateTime date, bool overwrite)
         {
-            return _service.localItems.AddLocalFile(path, description, date, overwrite);
+            return service.localItems.AddLocalFile(path, description, date, overwrite);
         }
 
         public bool AddLocation(string name, string country, string region)
         {
-            return _service.dbService.editService.AddLocation(name, country, region);
+            return service.dbService.editService.AddLocation(name, country, region);
         }
 
         public bool AddPerson(string firstName, string lastName, string group)
         {
-            return _service.dbService.editService.AddPerson(firstName, lastName, group);
+            return service.dbService.editService.AddPerson(firstName, lastName, group);
         }
 
         public bool AttachDynamicProperty(string itemPath, string properyName, string propertyValue)
         {
-            return _service.dbService.editService.AttachDynamicProperty(itemPath, properyName, propertyValue);
+            return service.dbService.editService.AttachDynamicProperty(itemPath, properyName, propertyValue);
         }
 
         public bool AttachPerson(string itemPath, string personFirstName, string personLastName, string personGroup)
         {
-            return _service.dbService.editService.AttachPerson(itemPath, personFirstName, personLastName, personGroup);
+            return service.dbService.editService.AttachPerson(itemPath, personFirstName, personLastName, personGroup);
         }
 
         public bool ChangeDate(string itemPath, DateTime newDate)
         {
-            return _service.dbService.editService.ChangeDate(itemPath, newDate);
+            return service.dbService.editService.ChangeDate(itemPath, newDate);
         }
 
         public bool ChangeDescription(string itemPath, string description)
         {
-            return _service.dbService.editService.ChangeDescription(itemPath, description);
+            return service.dbService.editService.ChangeDescription(itemPath, description);
         }
 
         public bool ChangeEvent(string itemPath, string eventName)
         {
-            return _service.dbService.editService.ChangeEvent(itemPath, eventName);
+            return service.dbService.editService.ChangeEvent(itemPath, eventName);
         }
 
         public bool ChangeLocation(string itemPath, string locationName, string locationCountry, string locationRegion)
         {
-            return _service.dbService.editService.ChangeLocation(itemPath, locationName, locationCountry,
+            return service.dbService.editService.ChangeLocation(itemPath, locationName, locationCountry,
                 locationRegion);
         }
 
         public ICollection<string> CheckForMovedOrDeletedFiles()
         {
-            return _service.localItems.CheckForMovedOrDeletedFiles();
+            return service.localItems.CheckForMovedOrDeletedFiles();
         }
 
         public bool EditItem(string itemPath, string newDescription, bool changeDescription, string eventName, bool changeEvent, DateTime newDate, bool changeDate)
         {
-            return _service.dbService.editService.EditItem(itemPath, newDescription, changeDescription, eventName,
+            return service.dbService.editService.EditItem(itemPath, newDescription, changeDescription, eventName,
                 changeEvent, newDate, changeDate);
         }
 
         public bool ExportAsJSON(string path, List<MediaItemDTO> items)
         {
-            return _service.localItems.ExportAsJSON(path, items);
+            return service.localItems.ExportAsJSON(path, items);
         }
 
         public List<MediaItemDTO> FileterByScalar(List<MediaItemDTO> items, string extension, bool extensionCheck, DateTime date, bool dateChecked, bool isPhoto, bool isPhotoChecked, string eventName, bool eventChecked)
         {
-            return _service.dbService.queryService.FileterByScalar(items, extension, extensionCheck, date, dateChecked,
+            return service.dbService.queryService.FileterByScalar(items, extension, extensionCheck, date, dateChecked,
                 isPhoto, isPhotoChecked, eventName, eventChecked);
         }
 
         public List<MediaItemDTO> FilterByRelation(List<MediaItemDTO> items, string value1, string value2, string value3, string filterType)
         {
-            return _service.dbService.queryService.FilterByRelation(items, value1, value2, value3, filterType);
+            return service.dbService.queryService.FilterByRelation(items, value1, value2, value3, filterType);
         }
 
         public List<string> GetAllMediaPathsFromFolder(string path, bool recursive)
         {
-            return _service.localItems.GetAllMediaPathsFromFolder(path, recursive);
+            return service.localItems.GetAllMediaPathsFromFolder(path, recursive);
+        }
+
+        public MediaItemDTO GetItemById(int Id)
+        {
+            return service.dbService.queryService.GetItemById(Id);
+        }
+
+        public MediaItemDTO GetItemByPath(string path)
+        {
+            return service.dbService.queryService.GetItemByPath(path);
         }
 
         public List<PropertyDTO> GetItemDynamicProperties(string path)
         {
-            return _service.dbService.queryService.GetItemDynamicProperties(path);
+            return service.dbService.queryService.GetItemDynamicProperties(path);
         }
 
         public string GetItemName(string itemPath, bool withExtension)
         {
-            return _service.localItems.GetItemName(itemPath, withExtension);
+            return service.localItems.GetItemName(itemPath, withExtension);
         }
 
         public List<PersonDTO> GetItemPersons(string path)
         {
-            return _service.dbService.queryService.GetItemPersons(path);
+            return service.dbService.queryService.GetItemPersons(path);
         }
 
         public List<MediaItemDTO> GetItems(bool markedForDelete, bool permanentDelete)
         {
-            return _service.dbService.queryService.GetItems(markedForDelete, permanentDelete);
+            return service.dbService.queryService.GetItems(markedForDelete, permanentDelete);
         }
 
         public List<LocationDTO> GetLocations()
         {
-            return _service.dbService.queryService.GetLocations();
+            return service.dbService.queryService.GetLocations();
         }
 
         public List<PersonDTO> GetPersons()
         {
-            return _service.dbService.queryService.GetPersons();
+            return service.dbService.queryService.GetPersons();
         }
 
         public List<PropertyDTO> GetProperties()
         {
-            return _service.dbService.queryService.GetProperties();
+            return service.dbService.queryService.GetProperties();
         }
 
         public bool IsPhoto(string itemPath)
         {
-            return _service.localItems.IsPhoto(itemPath);
+            return service.localItems.IsPhoto(itemPath);
         }
 
         public bool IsVideo(string itemPath)
         {
-            return _service.localItems.IsVideo(itemPath);
+            return service.localItems.IsVideo(itemPath);
+        }
+
+        public bool ItemExists(string path)
+        {
+            return service.dbService.queryService.ItemExists(path);
         }
 
         public bool MarkForDelete(string itemPath)
         {
-            return _service.dbService.editService.MarkForDelete(itemPath);
+            return service.dbService.editService.MarkForDelete(itemPath);
         }
 
         public void MoveFile(string oldPath, string newPath)
         {
-            _service.localItems.MoveFile(oldPath, newPath);
+            service.localItems.MoveFile(oldPath, newPath);
         }
 
         public bool RemoveDynamicProperty(string itemPath, string properyName, string propertyValue)
         {
-            return _service.dbService.editService.RemoveDynamicProperty(itemPath, properyName, propertyValue);
+            return service.dbService.editService.RemoveDynamicProperty(itemPath, properyName, propertyValue);
         }
 
         public bool RemoveEvent(string itemPath)
         {
-            return _service.dbService.editService.RemoveEvent(itemPath);
+            return service.dbService.editService.RemoveEvent(itemPath);
         }
 
         public bool RemoveLocation(string itemPath)
         {
-            return _service.dbService.editService.RemoveLocation(itemPath);
+            return service.dbService.editService.RemoveLocation(itemPath);
         }
 
         public bool RemoveLocationFromContext(string name, string country, string region)
         {
-            return _service.dbService.editService.RemoveLocationFromContext(name, country, region);
+            return service.dbService.editService.RemoveLocationFromContext(name, country, region);
         }
 
         public void RemoveMarkedFiles()
         {
-            _service.localItems.RemoveMarkedFiles();
+            service.localItems.RemoveMarkedFiles();
         }
 
         public bool RemovePerson(string itemPath, string personFirstName, string personLastName, string personGroup)
         {
-            return _service.dbService.editService.RemovePerson(itemPath, personFirstName, personLastName, personGroup);
+            return service.dbService.editService.RemovePerson(itemPath, personFirstName, personLastName, personGroup);
         }
 
         public bool RemovePersonFromContext(string firstName, string lastName, string group)
         {
-            return _service.dbService.editService.RemovePersonFromContext(firstName, lastName, group);
+            return service.dbService.editService.RemovePersonFromContext(firstName, lastName, group);
         }
 
         public bool RemovePropertyFromContext(string name, string value)
         {
-            return _service.dbService.editService.RemovePropertyFromContext(name, value);
+            return service.dbService.editService.RemovePropertyFromContext(name, value);
         }
 
         public bool ViewItem(string itemPath)
         {
-            return _service.localItems.ViewItem(itemPath);
+            return service.localItems.ViewItem(itemPath);
         }
     }
 }

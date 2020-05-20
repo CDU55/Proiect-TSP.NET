@@ -14,6 +14,7 @@ namespace Proiect_TSPNET
         {
             this.queryService = new ItemsQueryService();
             this.editService = new ItemsEditAddRemoveService();
+
         }
     }
 }

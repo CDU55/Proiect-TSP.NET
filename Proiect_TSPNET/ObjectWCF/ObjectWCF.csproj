@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service.cs" />
     <Compile Include="IItemsEditAddRemoveService.cs" />
     <Compile Include="IItemsQueryService.cs" />
     <Compile Include="ILocalItemsService.cs" />
     <Compile Include="IService.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,92 @@
+﻿@page "{id:int?}"
+@model Interfata_ASP.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-info">Displaying detalils for @Model.item.Title</h2>
+    </div>
+</div>
+<h3>Path : @Model.item.Path</h3>
+<h3>Description : @Model.item.Description</h3>
+<h3>Extension : @Model.item.Extension</h3>
+
+
+@if (Model.item.IsPhoto)
+{
+    <img src="@Url.Content(Model.item.Path)"/>
+}
+<div class="col-20 border p-3 mt-3">
+    <form method="post">
+        @if (Model.item.persons.Length != 0)
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        <label asp-for="item.persons[0].FirstName"></label>
+                    </th>
+                    <th>
+                        <label asp-for="item.persons[0].LastName"></label>
+                    </th>
+                    <th>
+                        <label asp-for="item.persons[0].LastName"></label>
+                    </th>
+                </tr>
+                @foreach (var person in Model.item.persons)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(i => person.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(i => person.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(i => person.Group)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>@Model.item.Title has no persons Attached</p>
+        }
+    </form>
+</div>
+<div class="col-20 border p-3 mt-3">
+    <form method="post">
+        @if (Model.item.properties.Length != 0)
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        <label asp-for="item.properties[0].Name"></label>
+                    </th>
+                    <th>
+                        <label asp-for="item.properties[0].Value"></label>
+                    </th>
+                </tr>
+                @foreach (var property in Model.item.properties)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(i => property.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(i => property.Value)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>@Model.item.Title has no properties Attached</p>
+        }
+    </form>
+</div>
+

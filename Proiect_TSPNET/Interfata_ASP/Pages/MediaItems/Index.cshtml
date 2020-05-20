@@ -1,0 +1,100 @@
+﻿@page
+@model Interfata_ASP.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Listing : @Model.items.Length items</h1>
+<form>
+    <p>
+        <select asp-for="filterTypeValue" asp-items="Model.filterType">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-info">Media Items</h2>
+    </div>
+</div>
+
+<div class="col-20 border p-3 mt-3">
+    <form method="post">
+        @if (Model.items.Count() != 0)
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        <label asp-for="items[0].Id"></label>
+                    </th>
+                    <th>
+                        <label asp-for="items[0].Title"></label>
+                    </th>
+                    <th>
+                        <label asp-for="items[0].Date"></label>
+                    </th>
+                    <th>
+                        <label asp-for="items[0].Location"></label>
+                    </th>
+                    <th>
+                        <label asp-for="items[0].Event"></label>
+                    </th>
+                    <th>
+                        <label asp-for="items[0].IsPhoto"></label>
+                    </th>
+                </tr>
+                @foreach (var item in Model.items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(i => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(i => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(i => item.Date)
+                        </td>
+
+                        @if (item.Location != string.Empty)
+                        {
+                            <td>
+                                @Html.DisplayFor(i => item.Location)
+                            </td>
+                        }
+                        else
+                        {
+                            <td>No location</td>
+                        }
+
+                        @if (item.Event != string.Empty)
+                        {
+                            <td>
+
+                                @Html.DisplayFor(i => item.Event)
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                No Event
+                            </td>
+                        }
+                        <td>
+                            @Html.DisplayFor(i => item.IsPhoto)
+                        </td>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No Items available</p>
+        }
+    </form>
+</div>
+

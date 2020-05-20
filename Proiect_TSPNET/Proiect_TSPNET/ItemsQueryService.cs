@@ -134,5 +134,47 @@ namespace Proiect_TSPNET
             }
             return filteredItems;
         }
+
+        public bool ItemExists(string path)
+        {
+            if (this.context.MediaItems.Any(i => i.Path == path))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public MediaItemDTO GetItemByPath(string path)
+        {
+            var item = this.context.MediaItems.FirstOrDefault(i => i.Path == path);
+            if (item == null)
+            {
+                return null;
+            }
+            else
+            {
+                context.Entry(item).Collection(i => i.Persons).Load();
+                context.Entry(item).Collection(i => i.DynamicProperties).Load();
+                return new MediaItemDTO(item);
+            }
+        }
+
+        public MediaItemDTO GetItemById(int Id)
+        {
+            var item = this.context.MediaItems.FirstOrDefault(i => i.ItemId == Id);
+            if (item == null)
+            {
+                return null;
+            }
+            else
+            {
+                context.Entry(item).Collection(i => i.Persons).Load();
+                context.Entry(item).Collection(i => i.DynamicProperties).Load();
+                return new MediaItemDTO(item);
+            }
+        }
     }
 }

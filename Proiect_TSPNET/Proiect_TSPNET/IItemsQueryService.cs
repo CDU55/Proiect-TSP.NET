@@ -13,5 +13,10 @@ namespace Proiect_TSPNET
         List<LocationDTO> GetLocations();
         List<PersonDTO> GetPersons();
         List<PropertyDTO> GetProperties();
+        bool ItemExists(string path);
+        MediaItemDTO GetItemByPath(string path);
+        MediaItemDTO GetItemById(int Id);
+
+
     }
 }
