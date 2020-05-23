@@ -12,6 +12,7 @@ namespace Interfata_ASP
     {
         private readonly ServiceClient service;
         public MediaItemDTO item;
+
         public DetailsModel()
         {
             this.service = new ServiceClient();

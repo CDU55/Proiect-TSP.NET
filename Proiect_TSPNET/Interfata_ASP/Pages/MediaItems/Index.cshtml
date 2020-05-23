@@ -3,19 +3,29 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h1>Listing : @Model.items.Length items</h1>
-<form>
-    <p>
-        <select asp-for="filterTypeValue" asp-items="Model.filterType">
-            <option value="">All</option>
-        </select>
-        Title: <input type="text" asp-for="searchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
 <div class="container row p-0 m-0">
     <div class="col-10">
-        <h2 class="text-info">Media Items</h2>
+        <h1 class="text-info">Media Items</h1>
+        <h3 style="color: #57fe51">Listing : @Model.items.Length items</h3>
+        <form>
+            <p>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Keyword Type : </span>
+                    </div>
+                    <select asp-for="filterTypeValue" asp-items="Model.filterType">
+                        <option value="">All</option>
+                    </select>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Keyword : </span>
+                    </div>
+                    <input type="text" asp-for="searchString" />
+                    <input type="submit" value="Search" />
+                </div>
+
+            </p>
+        </form>
     </div>
 </div>
 
@@ -43,10 +53,13 @@
                     <th>
                         <label asp-for="items[0].IsPhoto"></label>
                     </th>
+                    <th>
+                        Options
+                    </th>
                 </tr>
                 @foreach (var item in Model.items)
                 {
-                    <tr>
+                    <tr class="table-primary">
                         <td>
                             @Html.DisplayFor(i => item.Id)
                         </td>
@@ -81,11 +94,16 @@
                                 No Event
                             </td>
                         }
+                        @if (item.IsPhoto)
+                        {
+                            <td>Yes</td>
+                        }
+                        else
+                        {
+                            <td>No</td>
+                        }
                         <td>
-                            @Html.DisplayFor(i => item.IsPhoto)
-                        </td>
-                        <td>
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
                         </td>
                     </tr>
                 }

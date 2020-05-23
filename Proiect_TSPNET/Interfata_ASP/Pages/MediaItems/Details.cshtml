@@ -5,23 +5,114 @@
 }
 
 <div class="container row p-0 m-0">
-    <div class="col-10">
-        <h2 class="text-info">Displaying detalils for @Model.item.Title</h2>
+    <div>
+        <h2 class="text-info">Displaying details for @Model.item.Title</h2>
     </div>
 </div>
-<h3>Path : @Model.item.Path</h3>
-<h3>Description : @Model.item.Description</h3>
-<h3>Extension : @Model.item.Extension</h3>
+<div class="col-20 border p-3 mt-3">
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <p style="font-size:16px">Path :</p>
+            </td>
+            <td>
+                <p style="color:#0c7c23;font-size:16px">@Model.item.Path</p>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="font-size:16px">Extension :</p>
+            </td>
+            <td>
+                <p style="color:#0c7c23;font-size:16px">@Model.item.Extension</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="font-size:16px">Description :</p>
+            </td>
+            <td>
+                @if (string.IsNullOrEmpty(Model.item.Description))
+                {
+                    <p style="color:darkred;font-size:16px"> No description</p>
+                }
+                else
+                {
+                    <p style="color:#0c7c23;font-size:16px"> @Model.item.Description</p>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="font-size:16px">Location :</p>
+            </td>
+            <td>
+                @if (string.IsNullOrEmpty(Model.item.Location))
+                {
+                    <p style="color:darkred;font-size:16px"> No location</p>
+                }
+                else
+                {
+                    <p style="color: #0c7c23;font-size:16px"> @Model.item.Location</p>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="font-size:16px">Event :</p>
+            </td>
+            <td>
+                @if (string.IsNullOrEmpty(Model.item.Event))
+                {
+                    <p style="color: darkred;font-size:16px"> No event</p>
+                }
+                else
+                {
+                    <p style="color: #0c7c23;font-size:16px"> @Model.item.Event</p>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
 
 
 @if (Model.item.IsPhoto)
 {
-    <img src="@Url.Content(Model.item.Path)"/>
+    if (System.IO.File.Exists(Model.item.Path))
+    {
+        byte[] imgByteArray = System.IO.File.ReadAllBytes(Model.item.Path);
+        var converted = Convert.ToBase64String(imgByteArray);
+        var imgSrc = String.Format("data:image;base64,{0}", converted);
+        <img src="@imgSrc" width=" 500" height="500" />
+    }
+    else
+    {
+        <div class="container border row p-0 m-0">
+            <div>
+                <h2 style="color:crimson">Image path not found, cannot show preview</h2>
+            </div>
+        </div>
+    }
+
+}
+else
+{
+    <div class="container border row p-0 m-0">
+        <div>
+            <h2 style="color:aqua">This item is a video, no preview available</h2>
+        </div>
+    </div>
 }
 <div class="col-20 border p-3 mt-3">
     <form method="post">
+
         @if (Model.item.persons.Length != 0)
         {
+            <div>
+                <h2 style="color:darkgreen">Persons</h2>
+            </div>
             <table class="table table-striped border">
                 <tr class="table-secondary">
                     <th>
@@ -52,7 +143,7 @@
         }
         else
         {
-            <p>@Model.item.Title has no persons Attached</p>
+            <h3 style="color:darkred">@Model.item.Title has no persons Attached</h3>
         }
     </form>
 </div>
@@ -60,6 +151,9 @@
     <form method="post">
         @if (Model.item.properties.Length != 0)
         {
+            <div>
+                <h2 style="color:darkgreen">Dynamic Properties</h2>
+            </div>
             <table class="table table-striped border">
                 <tr class="table-secondary">
                     <th>
@@ -85,7 +179,7 @@
         }
         else
         {
-            <p>@Model.item.Title has no properties Attached</p>
+            <h3 style="color:darkred">@Model.item.Title has no properties Attached</h3>
         }
     </form>
 </div>
