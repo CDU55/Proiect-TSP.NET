@@ -9,7 +9,7 @@
         <h2 class="text-info">Displaying details for @Model.item.Title</h2>
     </div>
 </div>
-<div class="col-20 border p-3 mt-3">
+<div class="col-25 border p-3 mt-3">
 
     <table>
         <tr>
@@ -91,7 +91,7 @@
     {
         <div class="container border row p-0 m-0">
             <div>
-                <h2 style="color:crimson">Image path not found, cannot show preview</h2>
+                <h2 style="color:darkred">Image path not found, cannot show preview</h2>
             </div>
         </div>
     }
@@ -101,7 +101,7 @@ else
 {
     <div class="container border row p-0 m-0">
         <div>
-            <h2 style="color:aqua">This item is a video, no preview available</h2>
+            <h2 style="color:darkred">This item is a video, no preview available</h2>
         </div>
     </div>
 }
@@ -122,7 +122,7 @@ else
                         <label asp-for="item.persons[0].LastName"></label>
                     </th>
                     <th>
-                        <label asp-for="item.persons[0].LastName"></label>
+                        <label asp-for="item.persons[0].Group"></label>
                     </th>
                 </tr>
                 @foreach (var person in Model.item.persons)
