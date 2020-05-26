@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostWCF", "HostWCF\HostWCF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWCF", "ClientWCF\ClientWCF.csproj", "{4E48B66A-70D6-4C67-8A8F-43C6F070D4DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfata_ASP", "Interfata_ASP\Interfata_ASP.csproj", "{983E40C5-6EA4-419D-831E-C9CAB6A5EA9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proiect 3", "Interfata_ASP\Proiect 3.csproj", "{983E40C5-6EA4-419D-831E-C9CAB6A5EA9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
