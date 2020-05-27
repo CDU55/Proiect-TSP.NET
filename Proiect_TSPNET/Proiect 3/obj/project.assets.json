@@ -6576,11 +6576,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\Proiecte\\Proiect_TSPNET\\Interfata_ASP\\Proiect 3.csproj",
+      "projectUniqueName": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\GIT\\Proiect-TSP.NET\\Proiect_TSPNET\\Proiect 3\\Proiect 3.csproj",
       "projectName": "Proiect 3",
-      "projectPath": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\Proiecte\\Proiect_TSPNET\\Interfata_ASP\\Proiect 3.csproj",
+      "projectPath": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\GIT\\Proiect-TSP.NET\\Proiect_TSPNET\\Proiect 3\\Proiect 3.csproj",
       "packagesPath": "C:\\Users\\Claudiu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\Proiecte\\Proiect_TSPNET\\Interfata_ASP\\obj\\",
+      "outputPath": "C:\\Users\\Claudiu\\Desktop\\An3_Sem2\\TSP.NET\\GIT\\Proiect-TSP.NET\\Proiect_TSPNET\\Proiect 3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

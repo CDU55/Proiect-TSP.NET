@@ -11,17 +11,17 @@ namespace Interfata_ASP
     public class IndexModel : PageModel
     {
         public string[] filterValues = { "Title", "Extension", "Description", "Location", "Event", "Persons", "Properties" };
-        private readonly ServiceClient service;
+        private readonly IService service;
         public MediaItemDTO[] items;
         [BindProperty(SupportsGet = true)]
         public string searchString { get; set; }
         public SelectList filterType;
         [BindProperty(SupportsGet = true)]
         public string filterTypeValue { get; set; }
-        public IndexModel()
+        public IndexModel(IService service)
         {
             filterType = new SelectList(this.filterValues);
-            service = new ServiceClient();
+            this.service = service;
         }
         public async Task OnGet()
         {

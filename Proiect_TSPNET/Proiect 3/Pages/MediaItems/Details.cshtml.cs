@@ -10,12 +10,12 @@ namespace Interfata_ASP
 {
     public class DetailsModel : PageModel
     {
-        private readonly ServiceClient service;
+        private readonly IService service;
         public MediaItemDTO item;
 
-        public DetailsModel()
+        public DetailsModel(IService service)
         {
-            this.service = new ServiceClient();
+            this.service = service;
         }
         public async Task<IActionResult> OnGet(int? id)
         {
